@@ -35,9 +35,11 @@ export const searchProductScraper = (state: typeof initialState = initialState, 
                 error: null 
             }
         case SEARCH_SCRAPER_SUCCESS:
+            console.log(action)
             return {
                 ...state,
                 message: "Successfully retrieved scraped products list",
+                payload: action.payload,
                 error: null,
             }
         case SEARCH_SCRAPER_FAIL:

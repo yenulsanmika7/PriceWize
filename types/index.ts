@@ -1,19 +1,10 @@
 export type Product = {
-  id: number;
-  name: string;
+  id: string, 
+  title: string;
   price: string;
-  stars: string;
-  rating_count: string[];
-  feature_bullets: string[];
-  images: {
-    hiRes: string;
-    thumb: string;
-    large: string;
-    main: { [key: string]: [number, number] };
-    variant: string;
-    lowRes: null;
-    shoppableScene: null;
-  }[];
-  variant_data: string;
-  product_url: string;
+  stars?: string;
+  image_url: string,
+  rating_count?: string[];
+  feature_bullets?: string[];  
+  url: string;
 };

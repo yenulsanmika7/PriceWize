@@ -17,21 +17,23 @@ const Searchbar: React.FC<SearchbarProps> = ({ products }) => {
   const [isLoading, setIsLoading] = useState(false); 
   const { payload } = useSelector((state:any) => state.searchProducts) 
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {    
     event.preventDefault();
+
     const formData = {
       website: "amazon",
-      search_query: searchPrompt
-    }
+      search_query: searchPrompt,
+    };
 
     try {
       setIsLoading(true);
-      const fetchedProducts = await searchScraper(formData, dispatch).then((response) => {
-        products(payload)
+      await searchScraper(formData, dispatch).then((response) => {
+        console.log("Products retrieved")
       })
     } catch (error) {
       console.log(error);
     } finally {
+      products(payload);
       setIsLoading(false)
     }  
   }
