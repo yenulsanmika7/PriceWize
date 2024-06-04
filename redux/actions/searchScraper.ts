@@ -19,10 +19,9 @@ export const searchScraper = async (data: RequestData, dispatch: AppDispatch) =>
     const url = `${BACKEND_URL}/scraper/search_products/`;
     await axios.post(url, data)
         .then(({ data }) => {    
-            console.log(data)            
             dispatch({
                 type: SEARCH_SCRAPER_SUCCESS,
-                payload: data,
+                payload: data.products_data,
             });
         })
         .catch((error) => {

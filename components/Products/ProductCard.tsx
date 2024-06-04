@@ -8,14 +8,12 @@ interface Props {
 }
  
 const ProductCard = ({ product }: Props) => {
-  const hiResUrl = product.images[0].hiRes == null ? product.images[0].large : product.images[0].hiRes;
-
   return (
     <Link href={`/products/${product.id}`} className="product-card">
       <div className="product-card_img-container">
         <Image 
-          src={hiResUrl}
-          alt={product.name}
+          src={product.image_url}
+          alt={product.title}
           width={200}
           height={200}
           className="product-card_img"
@@ -23,14 +21,15 @@ const ProductCard = ({ product }: Props) => {
       </div>
 
       <div className="flex flex-col gap-3">
-        <h3 className="product-title">{product.name}</h3>
+        <h3 className="product-title">{product.title}</h3>
 
         <div className="flex justify-between">
-          <p className="text-black opacity-50 text-lg capitalize">
-            {product.stars}
-          </p>
+          {/* <p className="text-black opacity-50 text-lg capitalize">
+            {product.category}
+          </p> */}
 
-          <p className="text-black text-lg font-semibold">
+          <p className="text-black opacity-50 text-lg font-semibold">
+            <span>$</span>
             <span>{product?.price}</span>
           </p>
         </div>

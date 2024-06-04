@@ -46,9 +46,9 @@ const Home = () => {
         <section className='search-section'>
           <h2 className="section-text">Searched Results</h2>
   
-          <div className='flex flex-wrap gap-x-20 gap-y-16'>
+          <div className='flex flex-wrap ml-20 gap-x-20 gap-y-16'>
             {products.map((product) => (
-              <ProductCard key={product.name} product={product} />
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </section>
