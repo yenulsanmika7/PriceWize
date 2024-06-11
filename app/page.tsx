@@ -5,6 +5,7 @@ import ProductCard from "@/components/Products/ProductCard"
 import Image from 'next/image'
 import { useState } from 'react'
 import { Product } from '@/types';
+import { NextUIProvider } from '@nextui-org/react';
 
 interface Props {
   product: Product;
@@ -14,7 +15,7 @@ const Home = () => {
   let [products, setProducts] = useState<Product[]>([]);
 
   return (
-    <>
+    <NextUIProvider>
       <section className="px-6 md:px-20 py-24">
         <div className="flex max-xl:flex-col gap-16">
           <div className="flex flex-col justify-center">
@@ -28,7 +29,7 @@ const Home = () => {
               ></Image>
             </p>
 
-            <h1 className="head-text">
+            <h1 className="mt-4 text-6xl leading-[72px] font-bold tracking-[-1.2px] text-gray-900">
               Unleash the Power of
               <span className="text-primary"> PriceWise</span>
             </h1>
@@ -53,7 +54,7 @@ const Home = () => {
           </div>
         </section>
       )}
-    </>
+    </NextUIProvider>
   )
 }
 
