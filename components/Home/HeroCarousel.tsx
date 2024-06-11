@@ -8,7 +8,7 @@ const heroImages = [
   { imgUrl: '/assets/images/hero-3.png', alt: "smart-watch" },
   { imgUrl: '/assets/images/hero-2.png', alt: "lamp" },
   { imgUrl: '/assets/images/hero-2.png', alt: "macbook" },
-  { imgUrl: '/assets/images/hero-2.png', alt: "chair" },
+  { imgUrl: '/assets/images/hero-1.png', alt: "chair" },
 ];
 
 function HeroCarousel() {
