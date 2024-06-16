@@ -12,7 +12,7 @@ const ProductCard = ({ product }: Props) => {
     <Link href={`/products/${product.id}`} className="product-card">
       <div className="product-card_img-container">
         <Image 
-          src={product.image_url}
+          src={product.img}
           alt={product.title}
           width={200}
           height={200}
@@ -28,7 +28,7 @@ const ProductCard = ({ product }: Props) => {
             {product.category}
           </p> */}
 
-          <p className="text-black opacity-50 text-lg font-semibold">
+          <p className="text-black text-[17px] opacity-50 text-lg font-semibold">
             <span>$</span>
             <span>{product?.price}</span>
           </p>

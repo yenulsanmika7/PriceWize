@@ -1,9 +1,7 @@
-"use client"
-import { fetchAmazonProductByID, trackProduct } from "@/actions/serverRouting";
+import { fetchAmazonProductByID } from "@/actions/serverRouting";
 import { redirect } from "next/navigation";
 import Image from "next/image"
 import Link from "next/link";
-import { MouseEventHandler, useState } from 'react'
 import Modal from "@/components/Home/Modal";
 
 type Props =  {
@@ -16,16 +14,16 @@ const ProductDetails = async ({ params: { id } } : Props) => {
 
   if (!product) redirect('/')
 
-  const hiResUrl = product.images[0].hiRes == null ? product.images[0].large : product.images[0].hiRes;
-  const matches = product.rating_count.match(/^([\d,]+)\s/);
-  let rating_count = 0
+  // const hiResUrl = product.images[0].hiRes == null ? product.images[0].large : product.images[0].hiRes;
+  // const matches = product.rating_count.match(/^([\d,]+)\s/);
+  // let rating_count = 0
 
-  if (matches) {
-    const numericPart = matches[1];
-    rating_count = parseInt(numericPart.replace(/,/g, ''), 10);
-  } else {
-    console.log("No match found.");
-  }
+  // if (matches) {
+  //   const numericPart = matches[1];
+  //   rating_count = parseInt(numericPart.replace(/,/g, ''), 10);
+  // } else {
+  //   console.log("No match found.");
+  // }
   
 
   return (
@@ -33,8 +31,8 @@ const ProductDetails = async ({ params: { id } } : Props) => {
         <div className="flex gap-28 xl:flex-row flex-col">
             <div>
                 <Image
-                src={hiResUrl}    
-                alt={product.name}    
+                src={product.img}    
+                alt={product.title}    
                 width={450}
                 height={400}
                 className="mx-auto"        
@@ -44,10 +42,10 @@ const ProductDetails = async ({ params: { id } } : Props) => {
             <div className="flex-1 flex flex-col">
               <div className="flex justify-between items-start gap-5 flex-wrap pb-6">
                 <div className="flex flex-col gap-3">
-                  <p className="text-[24px] text-secondary font-semibold">{product.name}</p>
+                  <p className="text-[24px] text-secondary font-semibold">{product.title}</p>
 
                   <Link
-                  href={product.product_url}
+                  href={product.url}
                   target="_blank"
                   className="text-base text-black opacity-50" >
                     Visit Product
@@ -62,7 +60,7 @@ const ProductDetails = async ({ params: { id } } : Props) => {
                         height={20}
                         />
 
-                      <p className="text-base font-semibold text-[#D46F77]">{rating_count}</p>
+                      <p className="text-base font-semibold text-[#D46F77]">0</p>
                     </div>
 
                     <div className="p-2 bg-white-200 rounded-10">
@@ -101,7 +99,7 @@ const ProductDetails = async ({ params: { id } } : Props) => {
                       width={16}
                       height={16}                 
                       />
-                      <p className="text-sm text-secondary font-semibold">{product.question_count} Questions</p>
+                      <p className="text-sm text-secondary font-semibold">0 Questions</p>
                     </div>
                   </div>                  
                 </div>
@@ -115,7 +113,7 @@ const ProductDetails = async ({ params: { id } } : Props) => {
                 <h3 className="text-2xl text-secondary font-semibold">Product Description</h3>
 
                 <div className="flex flex-col gap-4">
-                  {product?.description}
+                  ""
                 </div>
               </div>
           </div>

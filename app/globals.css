@@ -74,7 +74,7 @@
   }
 
   .small-text {
-    @apply font-spaceGrotesk text-[25px] flex gap-2 text-sm font-medium text-primary;
+    @apply font-spaceGrotesk text-[25px] flex gap-2 text-sm font-medium text-[#dc2626] font-semibold;
   }
 
   .paragraph-text {
@@ -183,7 +183,7 @@
   }
 
   .product-title {
-    @apply text-secondary text-xl leading-6 font-semibold truncate;
+    @apply text-black text-xl leading-6 font-semibold truncate;
   }
 
   /* SEARCHBAR INPUT */

@@ -1,7 +1,10 @@
 import {
     SEARCH_SCRAPER_REQUEST,
     SEARCH_SCRAPER_SUCCESS,
-    SEARCH_SCRAPER_FAIL
+    SEARCH_SCRAPER_FAIL,
+    TRACKED_PRODUCTS_REQUEST,
+    TRACKED_PRODUCTS_SUCCESS,
+    TRACKED_PRODUCTS_FAIL
 } from "../types/scraperTypes"
 
 interface Products {
@@ -35,7 +38,6 @@ export const searchProductScraper = (state: typeof initialState = initialState, 
                 error: null 
             }
         case SEARCH_SCRAPER_SUCCESS:
-            console.log(action)
             return {
                 ...state,
                 message: "Successfully retrieved scraped products list",
@@ -43,6 +45,31 @@ export const searchProductScraper = (state: typeof initialState = initialState, 
                 error: null,
             }
         case SEARCH_SCRAPER_FAIL:
+            return { 
+                ...state,
+                error: action.error || "",
+            }
+        default:
+            return state
+    }
+}
+
+export const getTrackedProducts = (state: typeof initialState = initialState, action: searchProductsAction): typeof initialState => {
+    switch (action.type) {
+        case TRACKED_PRODUCTS_REQUEST:
+            return {
+                ...state,
+                message: "Request send to get tracked products!",
+                error: null,
+            }
+        case TRACKED_PRODUCTS_SUCCESS:
+            return {
+                ...state,
+                message: "Successfully retrieved scraped products list",
+                payload: action.payload,
+                error: null,
+            }
+        case TRACKED_PRODUCTS_FAIL:
             return { 
                 ...state,
                 error: action.error || "",
