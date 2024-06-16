@@ -1,10 +1,11 @@
 'use client'
-import { searchProductScraper } from "@/redux/reducers/scraperReducer";
+import { searchProductScraper, getTrackedProducts } from "@/redux/reducers/scraperReducer";
 import { configureStore } from "@reduxjs/toolkit"
 
 const store = configureStore({
     reducer: {
-        searchProducts: searchProductScraper
+        searchProducts: searchProductScraper,
+        trackedProducts: getTrackedProducts,
     }
 })
 

@@ -31,7 +31,7 @@ const Home = () => {
 
             <h1 className="mt-4 text-6xl leading-[72px] font-bold tracking-[-1.2px] text-gray-900">
               Unleash the Power of
-              <span className="text-primary"> PriceWise</span>
+              <span className="text-[#dc2626]"> PriceWise</span>
             </h1>
 
             <p className="mt-6 font-Inter">Powerful, self-serve product and growth analytics to help you convert, engage, and retain more.</p>
@@ -45,7 +45,7 @@ const Home = () => {
 
       {products.length > 0 && (
         <section className='search-section'>
-          <h2 className="section-text">Searched Results</h2>
+          <h2 className="text-[32px] font-semibold text-black">Searched Results</h2>
   
           <div className='flex flex-wrap ml-20 gap-x-20 gap-y-16'>
             {products.map((product) => (

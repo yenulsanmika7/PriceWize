@@ -4,34 +4,27 @@ const api = axios.create({
     baseURL: 'http://127.0.0.1:8000',
 });
 
-export const fetchAmazonProducts = async (keyword: string) => {
-    try {
-        const response = await api.get(`/amazon_scraper/search_keyword=${keyword}`);
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching data from the backend:', error);
-        throw error;
-    }
-};
+interface GetProductByIdRequest {
+    url: any;
+    params: {
+      id: string;
+    };
+}
 
-export const fetchAmazonProductURL = async (url: string) => {
+export const fetchAmazonProductByID = async (product_id: string) => {
     try {
-        const response = await api.get(`/amazon_scraper/product_url=${url}`);
+        const config: GetProductByIdRequest = {
+          url: '/get_search_product',
+          params: {
+            id: product_id
+          }
+        };
+        const response = await api.get(config);
         return response.data;
-    } catch (error) {
+      } catch (error) {
         console.error('Error fetching data from the backend:', error);
         throw error;
-    }
-};
-
-export const fetchAmazonProductByID = async (id: string) => {
-    try {
-        const response = await api.get(`/amazon_scraper/product=${id}`);
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching data from the backend:', error);
-        throw error;
-    }
+      }
 };
 
 export const trackProduct = async (productId: string, email: string) => {
